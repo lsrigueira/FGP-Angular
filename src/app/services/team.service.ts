@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Team } from '../interfaces/teams';
 
-export const TeamsTableHeaders = ['name', 'country', 'players'];
+export const TeamsTableHeaders = ['Name', 'Country', 'Players'];
 
 @Injectable({
   providedIn: 'root'
@@ -27,15 +27,15 @@ export class TeamService {
   }
 
 
-  addPlayer(player: Team){
+  addTeam(player: Team){
     return this.teamDb.push(player);
   }
 
-  deletePlayer(id: string){
+  deleteTeam(id: string){
     this.teamDb.remove(id);
   }
 
-  editPlayer(newPlayerData){
+  editTeam(newPlayerData){
     const $key = newPlayerData.$key;
     delete(newPlayerData.$key);
     this.teamDb.update($key, newPlayerData);
